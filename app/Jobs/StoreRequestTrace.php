@@ -2,9 +2,9 @@
 
 namespace App\Jobs;
 
+use App\Models\RequestTrace;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
-use App\Models\RequestTrace;
 
 class StoreRequestTrace implements ShouldQueue
 {

@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Jobs\StoreRequestTrace;
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
-use App\Jobs\StoreRequestTrace;
+use Illuminate\Support\Str;
+use Symfony\Component\HttpFoundation\Response;
 
 class TraceRequest
 {
@@ -18,8 +18,8 @@ class TraceRequest
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $traceId=(string)str::uuid();
-        $start=microtime(true);
+        $traceId = (string) Str::uuid();
+        $start = microtime(true);
         Log::withContext([
             'trace_id' => $traceId,
         ]);

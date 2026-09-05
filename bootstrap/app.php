@@ -1,5 +1,9 @@
 <?php
 
+use App\Console\Commands\BillingCloseMonth;
+use App\Console\Commands\BillingSendReminders;
+use App\Http\Middleware\HandleInertiaRequests;
+use App\Http\Middleware\TraceRequest;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -11,11 +15,16 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
+
+    ->withCommands([
+        BillingCloseMonth::class,
+        BillingSendReminders::class,
+    ])
     ->withMiddleware(function (Middleware $middleware): void {
-            $middleware->web(append: [
-        	\App\Http\Middleware\HandleInertiaRequests::class,
-        	\App\Http\Middleware\TraceRequest::class,
-   	 ]);
+        $middleware->web(append: [
+            HandleInertiaRequests::class,
+            TraceRequest::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

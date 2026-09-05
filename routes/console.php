@@ -12,4 +12,9 @@ Schedule::command('invoices:overdue-report')
     ->onOneServer()
     ->withoutOverlapping()
     ->emailOutputOnFailure('your-email@example.com');
-
+Schedule::command('billing:close-month '.now()->subMonth()->format('Y-m'))
+    ->monthly()
+    ->withoutOverlapping();
+Schedule::command('billing:send-reminders')
+    ->dailyAt('09:00')
+    ->withoutOverlapping();

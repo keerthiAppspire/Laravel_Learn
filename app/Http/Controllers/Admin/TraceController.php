@@ -15,12 +15,12 @@ class TraceController extends Controller
             ->orderByDesc('duration_ms')
             ->limit(100)
             ->get([
-		'id',
+                'id',
                 'trace_id',
                 'route_name',
                 'duration_ms',
                 'status',
-	   ]);
+            ]);
 
         return Inertia::render('Admin/Traces/Index', [
             'traces' => $traces,

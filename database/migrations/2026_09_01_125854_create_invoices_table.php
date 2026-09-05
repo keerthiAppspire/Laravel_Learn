@@ -9,17 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-  public function up(): void
-{
-    Schema::create('invoices', function (Blueprint $table) {
-        $table->id();
-        $table->string('customer_name');
-        $table->decimal('amount', 10, 2);
-        $table->date('due_date');
-        $table->string('status')->default('unpaid');
-        $table->timestamps();
-    });
-}
+    public function up(): void
+    {
+        Schema::create('invoices', function (Blueprint $table) {
+            $table->id();
+            $table->string('customer_name');
+            $table->decimal('amount', 10, 2);
+            $table->date('due_date');
+            $table->string('status')->default('unpaid');
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

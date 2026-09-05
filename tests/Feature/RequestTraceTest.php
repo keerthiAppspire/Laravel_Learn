@@ -2,9 +2,9 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class RequestTraceTest extends TestCase
 {
@@ -18,6 +18,7 @@ class RequestTraceTest extends TestCase
         $response->assertHeader('X-Trace-Id');
         $response->assertHeader('X-Duration-Ms');
     }
+
     public function test_trace_row_is_created(): void
     {
         $this->get('/');
@@ -25,7 +26,8 @@ class RequestTraceTest extends TestCase
             'status' => 200,
         ]);
     }
-     public function test_admin_can_view_traces(): void
+
+    public function test_admin_can_view_traces(): void
     {
         $admin = User::factory()->create([
             'is_admin' => true,
