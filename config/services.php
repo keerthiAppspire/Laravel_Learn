@@ -34,5 +34,8 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
-
+    'exchange_rates' => [
+        'USD_INR' => 83.50,
+        'EUR_INR' => 90.25,
+    ],
 ];
