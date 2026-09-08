@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
+use App\Services\RequestCounter;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -23,3 +24,29 @@ Route::post('/logout', [AuthController::class, 'logout'])
 Route::get('/admin/traces', [TraceController::class, 'index'])
     ->middleware(AdminMiddleware::class)
     ->name('admin.traces.index');
+//lifetimes lab
+Route:: get('/test_lifetimes', function() {
+    $bind1=app('counter.bind');
+    $bind2=app('counter.bind');
+    
+    $singleton1=app('counter.singleton');
+    $singleton2=app('counter.singleton');
+
+    $scoped1=app('counter.scoped');
+    $scoped2=app('counter.scoped');
+
+    return[
+        'bind'=>[
+            spl_object_id($bind1),
+            spl_object_id($bind2),
+        ],
+        'singleton'=>[                   
+            spl_object_id($singleton1),
+            spl_object_id($singleton2),
+        ],
+        'scoped'=>[
+            spl_object_id($scoped1),
+            spl_object_id($scoped2),
+        ],
+    ];
+});
