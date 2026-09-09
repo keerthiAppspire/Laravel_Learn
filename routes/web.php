@@ -50,3 +50,13 @@ Route:: get('/test_lifetimes', function() {
         ],
     ];
 });
+Route::get('/text_contextual',function(){
+    $payroll=app(App\Services\PayrollAuditExport::class);
+    $headcount=app(App\Services\HeadcountExport::class);
+    return[
+        'payroll_class'=>get_class($payroll),
+        
+        'headcount_class'=>get_class($headcount),
+        
+    ];
+});

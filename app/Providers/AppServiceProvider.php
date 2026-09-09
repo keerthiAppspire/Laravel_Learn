@@ -7,6 +7,10 @@ use App\Services\RequestCounter;
 use App\Services\FixedExchangeRateProvider;
 use App\Contracts\ExchangeRateProvider;
 use App\Services\EcbExchangeRateProvider;
+use App\Services\PayrollAuditExport;
+use App\Services\HeadcountExport;
+use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Storage;
 class AppServiceProvider extends ServiceProvider
 {
     /**

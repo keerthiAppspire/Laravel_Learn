@@ -59,7 +59,15 @@ return [
             'throw' => false,
             'report' => false,
         ],
+        'hr-private' => [
+          'driver' => 'local',
+          'root' => storage_path('app/hr-private'),
+        ],
 
+        'exports' => [
+            'driver' => 'local',
+            'root' => storage_path('app/exports'),
+        ],
     ],
 
     /*
