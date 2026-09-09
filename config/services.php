@@ -38,4 +38,10 @@ return [
         'USD_INR' => 83.50,
         'EUR_INR' => 90.25,
     ],
+    'payroll' => [
+        'tax_rates' => [
+            'US' => 0.20,
+            'DE' => 0.25,
+       ],
+   ],
 ];
