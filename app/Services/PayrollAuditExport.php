@@ -2,7 +2,7 @@
 
 namespace App\Services;
 use Illuminate\Contracts\Filesystem\Filesystem;
-use Illuminate\Container\attributes\Storage;
+use Illuminate\Container\Attributes\Storage;
 
 class PayrollAuditExport
 {
@@ -10,7 +10,7 @@ class PayrollAuditExport
      * Create a new class instance.
      */
     public function __construct(
-        #[storage('hr-private')]
+        #[Storage('hr-private')]
         private Filesystem $storage
         ){}
     public function export(): void

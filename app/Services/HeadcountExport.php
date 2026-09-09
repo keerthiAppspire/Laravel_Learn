@@ -2,7 +2,7 @@
 
 namespace App\Services;
 use Illuminate\Contracts\Filesystem\Filesystem;
-use Illuminate\Container\attributes\Storage;
+use Illuminate\Container\Attributes\Storage;
 class HeadcountExport
 {
     /**
