@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Services\RequestCounter;
+use App\Http\Controllers\EmployeeOnboardingController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -60,3 +61,7 @@ Route::get('/text_contextual',function(){
         
     ];
 });
+Route::post('/employees/onboard', [
+    EmployeeOnboardingController::class,
+    'onboard',
+]);

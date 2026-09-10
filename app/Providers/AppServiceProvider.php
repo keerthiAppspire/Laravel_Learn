@@ -42,6 +42,10 @@ class AppServiceProvider extends ServiceProvider
                 config('services.payroll.tax_rates.DE')
             );
         });
+        $this->app->bind(
+            \App\Contracts\DirectorySync::class,
+            \App\Services\AzureDirectorySync::class
+        );
     }
 
     /**
