@@ -12,7 +12,7 @@ use Illuminate\Console\Command;
 #[Description('Send reminders for overdue invoices')]
 class BillingSendReminders extends Command
 {
-    public function handle()
+    public function handle(): int
     {
         $graceDays = config('billing.grace_days');
 

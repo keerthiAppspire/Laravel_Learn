@@ -11,6 +11,7 @@ class EmployeeOnboardingService
     {
         //
     }
+    /** @param array<string, mixed> $employee */
     public function onboard(array $employee): void
     {
         $this->directorySync->sync($employee);

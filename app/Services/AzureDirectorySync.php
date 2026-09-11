@@ -11,6 +11,7 @@ class AzureDirectorySync implements DirectorySync
     {
     }
 
+    /** @param array<string, mixed> $employee */
     public function sync(array $employee): void
     {
         // Implement the sync logic here

@@ -8,6 +8,7 @@ class FixedExchangeRateProvider implements ExchangeRateProvider
      * Create a new class instance.
      */
     public function __construct(
+        /** @var array<string, float> */
         private array $rates
     ){    
     }

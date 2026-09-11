@@ -15,7 +15,7 @@ class OverdueInvoiceReport extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): int
     {
         $days = (int) $this->option('days');
         $invoices = Invoice::where('due_date', '<', today()->subDays($days))
