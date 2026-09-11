@@ -44,4 +44,7 @@ return [
             'DE' => 0.25,
        ],
    ],
+   'twilio' => [
+        'api_key' => env('TWILIO_API_KEY'),
+    ],
 ];
