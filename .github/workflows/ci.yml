@@ -41,6 +41,7 @@ jobs:
       - name: Prepare Laravel
         run: |
           cp .env.example .env
+          echo "TWILIO_API_KEY=test-key" >> .env
           php artisan key:generate
 
       - name: Cache routes
