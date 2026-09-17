@@ -1,0 +1,17 @@
+{
+    "name": "acme/activity-log",
+    "description": "Internal activity log package",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Acme\\ActivityLog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Acme\\ActivityLog\\ActivityLogServiceProvider"
+            ]
+        }
+    }
+}

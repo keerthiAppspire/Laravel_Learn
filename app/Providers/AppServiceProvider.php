@@ -9,6 +9,8 @@ use App\Contracts\ExchangeRateProvider;
 use App\Services\EcbExchangeRateProvider;
 use App\Services\USPayrollCalculator;
 use App\Services\DEPayrollCalculator;
+use App\Models\LeaveRequest;
+use App\Observers\LeaveRequestObserver;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -53,6 +55,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        LeaveRequest::observe(LeaveRequestObserver::class);
     }
 }
