@@ -7,6 +7,9 @@ use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 use App\Services\RequestCounter;
 use App\Http\Controllers\EmployeeOnboardingController;
+use App\Http\Controllers\ProjectController;
+
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -65,3 +68,52 @@ Route::post('/employees/onboard', [
     EmployeeOnboardingController::class,
     'onboard',
 ]);
+Route::get('/announcements',function(){
+    return 'all announcements';
+});
+Route::get('/announcements/{announcement}',function($announcement){
+    return "Announcement:".$announcement;
+});
+Route::post('/announcements', function(){
+    return 'new announcement is created';
+});
+Route::patch('/announcements/{announcement}',function($announcement){
+    return "Announcement {$announcement} is updated";
+});
+Route::delete('/announcements/{announcement}',function($announcement){
+    return "announcement {$announcement} is deleted";
+});
+Route::get('/invoices/{invoice}', function ($invoice) {
+    logger("Invoice route reached: {$invoice}");
+
+    return "Invoice: {$invoice}";
+})->where('invoice', 'INV-[0-9]{4}-[0-9]{6}');
+Route::get('/employees/{employee}', function ($employee) {
+    return "Employee: {$employee}";
+})->whereNumber('employee');
+
+Route::get('/employees', function () {
+    return 'Employees page';
+})->name('employees.index');
+
+Route::get('/departments', function () {
+    return 'Departments page';
+})->name('departments.index');
+
+Route::get('/attendance-reports', function () {
+    return 'Reports page';
+})->name('reports.index');
+
+Route::get('/navigation', function () {
+    return view('navigation');
+});
+
+Route::get('/payslips/{payslip}/download', function ($payslip) {
+    return "Downloading payslip: {$payslip}";
+})->name('payslips.download')->middleware('signed');
+
+Route::get('/cache-test', function () {
+    return 'Cache test';
+});
+
+Route::resource('projects', ProjectController::class);
